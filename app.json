@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "CoursePicker",
+    "name": "CS Course Scheduler",
     "slug": "CoursePicker",
     "version": "1.0.0",
     "orientation": "portrait",
