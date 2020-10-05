@@ -4,6 +4,8 @@ import Course from './Course';
 import { getCourseNumber, getCourseTerm, hasConflict, terms } from '../utils/course.js';
 
 
+
+
 const CourseSelector = ({courses}) => {
     const [selected, setSelected] = useState([]);
     const toggle = course => setSelected(selected => (
