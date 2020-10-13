@@ -5,6 +5,9 @@ import CourseList from '../components/CourseList';
 
 
 const ScheduleScreen = ({navigation}) => {
+  const view = (course) => {
+    navigation.navigate('CourseDetailScreen', { course });
+  };
   
   const [schedule, setSchedule] = useState({ title: '', courses: [] });
   
@@ -20,9 +23,7 @@ const ScheduleScreen = ({navigation}) => {
     fetchSchedule();
   }, []);
   
-  const view = (course) => {
-    navigation.navigate('CourseDetailScreen', { course });
-  };
+
   
   return (
     <SafeAreaView style={styles.container}>

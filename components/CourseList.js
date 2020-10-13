@@ -19,7 +19,7 @@ const CourseList = ({courses, view}) => {
         
         <ScrollView>
           <TermSelector selectedTerm={selectedTerm} setSelectedTerm={setSelectedTerm} />
-          <CourseSelector courses={termCourses} view = {view}/>
+          <CourseSelector courses={termCourses} view={view} />
         </ScrollView>
       );
 }

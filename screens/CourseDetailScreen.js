@@ -10,12 +10,9 @@ const Field = ({label, value}) => {
   );
 };
 
-const CourseDetailScreen = () => {
-  const course = {
-    "id": "F101",
-    "title": "Computer Science: Concepts, Philosophy, and Connections",
-    "meets": "MWF 11:00-11:50"
-  };
+const CourseDetailScreen = ({route}) => {
+  const course = route.params.course;
+
 
   return (
     <SafeAreaView style={styles.container}>

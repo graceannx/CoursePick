@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, Object } from 'react-native';
-import { getCourseNumber } from '../utils/course';
+import { getCourseNumber, getCourseTerm, hasConflict, terms } from '../utils/course';
+import view from '../screens/ScheduleScreen';
 
 
-const Course = ({course, disabled, isActive, select, view}) => (
-  <TouchableOpacity style={styles[disabled ? 'courseButtonDisabled' : isActive ? 'courseButtonActive' : 'courseButton']}
-      onPress={() => { if (!disabled) select(course); }}
+const Course = ({course, isDisabled, isSelected, select, view}) => (
+  <TouchableOpacity style={styles[isSelected ? 'courseButtonSelected' : isDisabled ? 'courseButtonDisabled' : 'courseButton']}
+      onPress={() => { if (!isDisabled)select(course);}}
       onLongPress={() => view(course)}>
     <Text style={styles.courseText}>
       {`CS ${getCourseNumber(course)}\n${course.meets}`}
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
 
   courseButtonSelected: {
     ...CourseButtonBase,
-    backgroundColor: '#004a99',
+    backgroundColor: '#004a99'
 
   },
   courseText:{
