@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ScheduleScreen from './screens/ScheduleScreen';
 import CourseDetailScreen from './screens/CourseDetailScreen';
+import CourseEditScreen from './screens/CourseEditScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
+import UserContext from './UserContext';
 
 
 const Stack = createStackNavigator();
 
 const App = () => {
+  const [user, setUser] = useState({ role: 'admin'});
   return (
+    <UserContext.Provider value={user}>
     <NavigationContainer> 
       <Stack.Navigator>
       <Stack.Screen name="ScheduleScreen"
@@ -19,11 +23,17 @@ const App = () => {
         
         <Stack.Screen name="CourseDetailScreen"
           component={CourseDetailScreen}
-          options={{ title: 'Course detail'}} 
+          options={{ title: 'Course Detail'}} 
+        />
+        
+        <Stack.Screen name="CourseEditScreen"
+          component={CourseEditScreen}
+          options={{ title: 'Course Edit'}} 
         />
         
       </Stack.Navigator>
     </NavigationContainer>
+    </UserContext.Provider>
   );
 };
 

@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import CourseList from '../components/CourseList';
-
+import UserContext from '../UserContext';
+import CourseEditScreen from './CourseEditScreen';
 
 
 const ScheduleScreen = ({navigation}) => {
+  const user = useContext(UserContext);
+  const canEdit = user && user.role === 'admin';
   const view = (course) => {
-    navigation.navigate('CourseDetailScreen', { course });
+    navigation.navigate(canEdit ?  'CourseEditScreen': 'CourseDetailScreen', { course });
   };
   
   const [schedule, setSchedule] = useState({ title: '', courses: [] });
