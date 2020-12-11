@@ -4,13 +4,14 @@ import CourseList from '../components/CourseList';
 import UserContext from '../UserContext';
 import CourseEditScreen from './CourseEditScreen';
 import {firebase} from '../firebase.js';
-import { object } from 'yup';
+import * as Yup from 'yup';
 
 const db = firebase.database().ref();
 const fixCourses = json => ({
   title: Object.values(json.title),
   courses: Object.values(json.courses)
 });
+
 
 
 const ScheduleScreen = ({navigation}) => {

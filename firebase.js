@@ -1,5 +1,7 @@
 import * as firebase from 'firebase';
 
+import 'firebase/auth';
+
 import "firebase/database";
 
 const firebaseConfig = {
@@ -12,6 +14,7 @@ const firebaseConfig = {
     appId: "1:174177148276:web:6c13f5a5ccd080057fe021",
     measurementId: "G-1HFZD7ZZ7V"
 };
+
 
 firebase.initializeApp(firebaseConfig);
 
